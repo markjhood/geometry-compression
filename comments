@@ -1,0 +1,21 @@
+Bug 4524591 p2/s3 Compression utilities do not support by-reference mode
+
+Implemented support for by-reference access to GeometryArray vertex
+components in interleaved and non-interleaved formats, along with their
+indexed variants, using both Java primitive arrays and NIO buffers.  No
+support is provided for deprecated by-reference access to vertex
+components in vecmath tuple arrays.
+
+In this release all by-reference vertex components are actually copied
+into existing compression stream elements for quantization and command
+generation.  This leaves a significant memory optimization unexploited,
+but in trying to go down that path it became clear that most of the
+compression stream elements needed to be rewritten to do that.
+
+The compressor has also been fixed to support initialIndexIndex,
+validIndexCount, and useCoordIndexOnly for indexed geometry, along with
+initialVertexIndex and validVertexCount for by-copy geometry.  These
+attributes were all defined after J3D 1.1 when the compressor was
+implemented.  The getModelBounds() and getNormalizedBounds() methods have
+been added for RFE 4374633 since they were trivial to implement.
+
