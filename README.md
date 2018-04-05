@@ -1,7 +1,7 @@
 # geometry-compression
 Java 3D implementation of Michael F. Deering's geometry compression specification
 
-In 2002 at Sun Microsystems I was involved in a few aspects of Java 3D, including implementing geometry compression.
+In 2002 at Sun Microsystems I was involved in a number of aspects of Java 3D, including implementing geometry compression.
 Michael F. Deering did the seminal work in this field, publishing research into quantizing positions, textures, and
 a novel normal compression technique. A Huffman encoding of these compressed geometry elements provided perceptually 
 lossless 5:1 compression ratios.  This was particularly important in an era when geometric models were commonly 
